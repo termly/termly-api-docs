@@ -63,7 +63,12 @@ export default defineConfig({
 								{ label: 'POST', slug: 'endpoints/publish-cookie-policy' },
 							]
 						},
-
+						{
+							label: 'Scan',
+							items: [
+								{ label: 'POST', slug: 'endpoints/trigger-scan' },
+							]
+						},
 						{
 							label: 'Scan Reports',
 							items: [
