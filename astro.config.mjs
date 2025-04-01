@@ -65,6 +65,12 @@ export default defineConfig({
 								{ label: 'DELETE', slug: 'endpoints/websites-delete' },
 							]
 						},
+						{
+							label: 'Scan Reports',
+							items: [
+								{ label: 'GET', slug: 'endpoints/scan-reports-get' },
+							]
+						}
 					],
 				},
 			],
