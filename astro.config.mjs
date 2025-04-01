@@ -57,6 +57,20 @@ export default defineConfig({
 							]
 						},
 						{
+							label: 'Documents',
+							items: [
+								{ label: 'GET', slug: 'endpoints/document-preview' },
+								{ label: 'POST', slug: 'endpoints/publish-cookie-policy' },
+							]
+						},
+
+						{
+							label: 'Scan Reports',
+							items: [
+								{ label: 'GET', slug: 'endpoints/scan-reports-get' },
+							]
+						},
+						{
 							label: 'Websites',
 							items: [
 								{ label: 'GET', slug: 'endpoints/websites-get' },
@@ -65,12 +79,6 @@ export default defineConfig({
 								{ label: 'DELETE', slug: 'endpoints/websites-delete' },
 							]
 						},
-						{
-							label: 'Scan Reports',
-							items: [
-								{ label: 'GET', slug: 'endpoints/scan-reports-get' },
-							]
-						}
 					],
 				},
 			],
