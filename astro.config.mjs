@@ -24,6 +24,10 @@ export default defineConfig({
 					items: [
 						{ label: '(GET) Banners', slug: 'endpoints/banners-get' },
 						{ label: '(PUT) Banners', slug: 'endpoints/banners-put' },
+						{ label: '(POST) Collaborators', slug: 'endpoints/collaborators-post' },
+						{ label: '(GET) Collaborators', slug: 'endpoints/collaborators-get' },
+						{ label: '(PUT) Collaborators', slug: 'endpoints/collaborators-put' },
+						{ label: '(DELETE) Collaborators', slug: 'endpoints/collaborators-delete' },
 					],
 				},
 			],
