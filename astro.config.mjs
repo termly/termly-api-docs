@@ -4,9 +4,16 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	redirects: {
+    '/': '/introduction/authentication/'
+  },
 	integrations: [
 		starlight({
-			title: 'Termly API Docs',
+			title: '',
+			logo: {
+				src: './src/assets/logo.svg',
+				alt: 'Termly API Docs'
+			},
 			social: {
 				github: 'https://github.com/termly/apidocs',
 			},
