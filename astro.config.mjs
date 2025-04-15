@@ -17,9 +17,6 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/termly/apidocs',
 			},
-			customCss: [
-				'./src/styles/custom.css',
-			],
 			sidebar: [
 				{
 					label: 'Authentication',
