@@ -3,9 +3,6 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-	redirects: {
-    '/': '/introduction/authentication/'
-  },
 	integrations: [
 		starlight({
 			title: '',
@@ -22,6 +19,7 @@ export default defineConfig({
 					content: 'Termly API Docs',
 				},
 			],
+			defaultLocale: 'root',
 			sidebar: [
 				{
 					label: 'Authentication',
