@@ -17,6 +17,12 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/termly/apidocs',
 			},
+			head: [
+				{
+					tag: 'title',
+					content: 'Termly API Docs',
+				},
+			],
 			sidebar: [
 				{
 					label: 'Authentication',
