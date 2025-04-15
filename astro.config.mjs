@@ -27,7 +27,6 @@ export default defineConfig({
 				{
 					label: 'Authentication',
 					items: [
-						// Each item here is one entry in the navigation menu.
 						{ label: 'Authentication', slug: 'introduction/authentication' },
 						{ label: 'Make a Request', slug: 'introduction/make-a-request' },
 					],
