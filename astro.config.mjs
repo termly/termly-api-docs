@@ -19,7 +19,6 @@ export default defineConfig({
 					content: 'Termly API Docs',
 				},
 			],
-			defaultLocale: 'root',
 			sidebar: [
 				{
 					label: 'Authentication',
