@@ -35,15 +35,15 @@ The value for ```Authorization``` must be:
 
 ```Authorization: TermlyV1, PublicKey=<partner public key>, Signature=<calculated signature>```
 
-- You can read about ```PublicKey``` here: (TODO) https://github.com/termly/apidocs/blob/main/keys.md
-- You can read about ```Signature``` here: (TODO) https://github.com/termly/apidocs/blob/main/signature.md
+- [Click here to read about ```PublicKey```](/other/public-key)
+- [Click here to read about ```Signature```](/other/signature)
 
 ## GET requests
 
 In addition to the 2 headers described above, a ```GET``` request can be made with a ```query``` or ```scrolling``` query string parameter. These 2 keys are mutually exclusive. A ```GET``` request will be rejected if both are found.
 
-- You can read about [query](/docs/query) here: (TODO) https://github.com/termly/apidocs/blob/main/query.md
-- You can read about [paging](/docs/paging) here: (TODO) https://github.com/termly/apidocs/blob/main/results_paging.md
+- [Click here to read about ```query```](/other/query)
+- [Click here to read about ```paging```](/other/results-paging)
 
 ## DELETE requests
 
