@@ -7,10 +7,4 @@ The Termly API is organized around REST. Our API has predictable resource-orient
 
 ## Authentication
 
-The Termly API uses API keys to authenticate requests. You can manage your API keys in the [Termly Dashboard](https://app.termly.io/dashboard). Look for the `API Keys` section in the left sidebar.
-
-![API Keys](../../../assets/api.png)
-
-## Further reading
-
-- Checkout out our [API Reference](https://github.com/termly/apidocs/tree/main) on GitHub
+The Termly API uses API keys to authenticate requests. Currently, if you want to use the partner API you need to be issued keys manually by us. Please reach out to us here: https://termly.io/agencies/ to get access.

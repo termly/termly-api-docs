@@ -28,6 +28,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Quickstart',
+					items: [
+						{ label: 'CMP Integration', slug: 'quickstart/cmp-integration' },
+					]
+				},
+				{
 					label: 'Endpoints',
 					items: [
 						{
