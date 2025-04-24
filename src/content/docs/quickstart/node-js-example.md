@@ -1,8 +1,45 @@
 ---
-title: Server.js
+title: Node.js Authentication Example
 description: A Node.js example of how to make a request to the Termly API
 ---
 
+Follow these steps to get the example up and running on your local machine.
+
+### Prerequisites
+
+You will need to add the following files to your project:
+
+#### env.example
+
+```bash
+PUBLIC_KEY=YOUR_PUBLIC_KEY
+PRIVATE_KEY=YOUR_PRIVATE_KEY
+```
+
+#### package.json
+
+```json
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.2",
+    "express": "^4.18.2"
+  }
+}
+```
+
+#### server.js
 
 ```javascript
 import express from 'express';
@@ -73,3 +110,29 @@ const port = 3000;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+```
+### Steps
+
+1. **Install dependencies:**
+``` bash
+npm install
+```
+
+2. **Set up environment variables:**
+
+Copy the .env.example file to a new file named .env and update it with your API credentials:
+
+``` bash
+cp .env.example .env
+```
+Then, open .env and replace `YOUR_PUBLIC_KEY` and `YOUR_PRIVATE_KEY` with your actual API public and private keys.
+
+## Running the Example
+To run the example, execute:
+
+``` bash
+npm start
+```
+This will start the server.
+
+With the server running, visit http://localhost:3000/test-auth to make a test API request and verify the successful authentication.

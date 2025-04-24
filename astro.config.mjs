@@ -30,6 +30,7 @@ export default defineConfig({
 				{
 					label: 'Quickstart',
 					items: [
+						{ label: 'Node.js Auth Example', slug: 'quickstart/node-js-example' },
 						{ label: 'CMP Integration', slug: 'quickstart/cmp-integration' },
 					]
 				},
