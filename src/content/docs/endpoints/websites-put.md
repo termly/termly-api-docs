@@ -2,7 +2,6 @@
 title: Websites
 description: A guide on how to use the Websites endpoint
 ---
-
 ## PUT
 
 Update an existing websites in the given account. The request body will be JSON:
@@ -16,6 +15,9 @@ Update an existing websites in the given account. The request body will be JSON:
     "url": "<string{http(s) scheme required}>",
     "scan_period": "<enum{'weekly', 'monthly', 'trimonthly'}>",
     "subdomains": [
+      "<string{http(s) scheme required}>"
+    ],
+    "additional_scan_urls": [
       "<string{http(s) scheme required}>"
     ],
     "company": {
@@ -53,6 +55,9 @@ The response is an array of success or error response objects
     },
     "subdomains": [
       "<string>"
+    ],
+    "additional_scan_urls": [
+      "<string>",
     ],
     "cookie_count": <integer>,
     "cookie_policy_document_id": "<string>",
@@ -107,6 +112,9 @@ PUT https://api.termly.io/v1/websites
     "subdomains": [
       "http://app.termly.io"
     ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
+    ],
     "company": {
       "legal_name": "termly",
       "email": "termly@termly.io",
@@ -140,6 +148,9 @@ PUT https://api.termly.io/v1/websites
     },
     "subdomains": [
       "http://app.termly.io"
+    ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
     ],
     "cookie_count": 0,
     "cookie_policy_document_id": "doc_123",
@@ -189,6 +200,9 @@ Submit multiple websites, one of which does not exist.
     "subdomains": [
       "http://app.termly.io"
     ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
+    ],
     "company": {
       "legal_name": "termly",
       "email": "termly@termly.io",
@@ -209,6 +223,9 @@ Submit multiple websites, one of which does not exist.
     "scan_period": "trimonthly",
     "subdomains": [
       "http://app.termly.io"
+    ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
@@ -243,6 +260,9 @@ Submit multiple websites, one of which does not exist.
     },
     "subdomains": [
       "http://app.termly.io"
+    ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
     ],
     "cookie_count": 0,
     "cookie_policy_document_id": "doc_123",
