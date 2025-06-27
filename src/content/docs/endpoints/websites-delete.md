@@ -2,7 +2,6 @@
 title: Websites
 description: A guide on how to use the Websites endpoint
 ---
-
 ## DELETE
 
 Delete an existing website from an account. The query has the following JSON shape:
@@ -102,3 +101,4 @@ DELETE https://api.termly.io/v1/websites?query=%5B%7B%20%22account_id%22%3A%20%2
   }
 ]
 ```
+

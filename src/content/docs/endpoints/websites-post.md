@@ -2,7 +2,6 @@
 title: Websites
 description: A guide on how to use the Websites endpoint
 ---
-
 ## POST
 
 Create new websites in the given account. The request body will be JSON:
@@ -15,6 +14,9 @@ Create new websites in the given account. The request body will be JSON:
     "url": "<string>",
     "scan_period": "<enum{'disabled', 'weekly', 'monthly', 'trimonthly'}>",
     "subdomains": [
+      "<string{http(s) scheme required}>"
+    ],
+    "additional_scan_urls": [
       "<string{http(s) scheme required}>"
     ],
     "company": {
@@ -52,6 +54,9 @@ The response is an array of success or error response objects with this shape:
     },
     "subdomains": [
       "<string>"
+    ],
+    "additional_scan_urls": [
+      "<string>t "
     ],
     "cookie_count": <integer>,
     "cookie_policy_document_id": "<string>",
@@ -139,6 +144,9 @@ POST https://api.termly.io/v1/websites
     "subdomains": [
       "http://app.termly.io"
     ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
+    ],
     "cookie_count": 0,
     "cookie_policy_document_id": "doc_123",
     "unclassified_cookie_count": 0,
@@ -186,6 +194,9 @@ Submit multiple websites one of which has a validation error
     "subdomains": [
       "http://app.termly.io"
     ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
+    ],
     "company": {
       "legal_name": "termly",
       "email": "termly@termly.io",
@@ -205,6 +216,9 @@ Submit multiple websites one of which has a validation error
     "scan_period": "trimonthly",
     "subdomains": [
       "http://app.termly.io"
+    ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
@@ -240,6 +254,9 @@ Submit multiple websites one of which has a validation error
     "subdomains": [
       "http://app.termly.io"
     ],
+    "additional_scan_urls": [
+      "https://app.termlystaging.io/user/login"
+    ],
     "cookie_count": 0,
     "cookie_policy_document_id": "doc_123",
     "unclassified_cookie_count": 0,
@@ -274,3 +291,4 @@ Submit multiple websites one of which has a validation error
   }
 ]
 ```
+

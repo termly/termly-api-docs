@@ -2,7 +2,6 @@
 title: Websites
 description: A guide on how to use the Websites endpoint
 ---
-
 ## GET
 
 Retrieve all or some of the websites in an account for the specified query.  The query has the following JSON shape:
@@ -54,7 +53,10 @@ The response will look like:
     "created_at": "<string>"
   },
   "subdomains": [
-    "<string>"
+    "<string{http(s) scheme required}>"
+  ],
+  "additional_scan_urls": [
+    "<string{http(s) scheme required}>"
   ],
   "cookie_count": <integer>,
   "cookie_policy_document_id": "<string>",
@@ -90,6 +92,13 @@ The response will look like:
   * `created_at` timestamp of when the report was created
 * `subdomains` an array of subdomains that the scanner will scan as well
   * items are strings
+  * http/https scheme is required
+  * Must be a subdomain of the 'url' field
+* `additional_scan_urls` an array of urls that the scanner will scan as well. This allows you to ensure a specific page is scanned.
+  * items are strings
+  * http/https scheme is required
+  * Must be a subdomain of, or match the domain in, the 'url' field
+* `cookie_count` total number of cookies found
 * `cookie_count` total number of cookies found
 * `cookie_policy_document_id` unique identifier of the cookie policy document
 * `company` object containing all the company related information
@@ -151,7 +160,10 @@ GET https://api.termly.io/v1/websites?query=%5B%7B%22account_id%22%3A%20%22acct_
         "created_at": "2021-09-21 01:58:53.721954 UTC"
       },
       "subdomains": [
-        "app.termly.io"
+        "https://app.termly.io"
+      ],
+      "additional_scan_urls": [
+        "https://app.termlystaging.io/user/login"
       ],
       "cookie_count": 0,
       "cookie_policy_document_id": "doc_123",
@@ -226,7 +238,10 @@ GET https://api.termly.io/v1/websites?query=%5B%20%7B%20%22account_id%22%3A%20%2
         "created_at": "2021-09-21 01:58:53.721954 UTC"
       },
       "subdomains": [
-        "app.termly.io"
+        "https://app.termly.io"
+      ],
+      "additional_scan_urls": [
+        "https://app.termlystaging.io/user/login"
       ],
       "cookie_count": 0,
       "cookie_policy_document_id": "doc_123",
@@ -261,7 +276,10 @@ GET https://api.termly.io/v1/websites?query=%5B%20%7B%20%22account_id%22%3A%20%2
         "created_at": "2021-09-21 01:58:53.721954 UTC"
       },
       "subdomains": [
-        "app.termly.io"
+        "https://app.termly.io"
+      ],
+      "additional_scan_urls": [
+        "https://app.termlystaging.io/user/login"
       ],
       "cookie_count": 0,
       "cookie_policy_document_id": "doc_123",
