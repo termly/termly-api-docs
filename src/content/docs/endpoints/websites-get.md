@@ -99,7 +99,6 @@ The response will look like:
   * http/https scheme is required
   * Must be a subdomain of, or match the domain in, the 'url' field
 * `cookie_count` total number of cookies found
-* `cookie_count` total number of cookies found
 * `cookie_policy_document_id` unique identifier of the cookie policy document
 * `company` object containing all the company related information
   * `legal_name` legal name of the company
