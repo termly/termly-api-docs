@@ -13,7 +13,7 @@ Create new websites in the given account. The request body will be JSON:
     "name": "<string{http(s) scheme required}>",
     "url": "<string>",
     "scan_period": "<enum{'disabled', 'weekly', 'monthly', 'trimonthly'}>",
-    "subdomains": [
+    "subdomains": [  # deprecated. Use `additional_scan_urls`
       "<string{http(s) scheme required}>"
     ],
     "additional_scan_urls": [
@@ -33,6 +33,8 @@ Create new websites in the given account. The request body will be JSON:
   }
 ]
 ```
+
+**Note: The `subdomains` field is deprecated. Please use `additional_scan_urls` instead.**
 
 The body must have 1 or more of these objects.  Once created, the JSON must be passed as the request body.
 
@@ -107,8 +109,11 @@ POST https://api.termly.io/v1/websites
     "name": "termly",
     "url": "https://termly.io",
     "scan_period": "trimonthly",
-    "subdomains": [
+    "subdomains": [ # deprecated. Use `additional_scan_urls`
       "http://app.termly.io"
+    ],
+    "additional_scan_urls": [
+      "http://app.termly.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
@@ -145,7 +150,7 @@ POST https://api.termly.io/v1/websites
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "http://app.termly.io/user/login"
     ],
     "cookie_count": 0,
     "cookie_policy_document_id": "doc_123",
@@ -191,11 +196,11 @@ Submit multiple websites one of which has a validation error
     "name": "termly",
     "url": "https://termly.io",
     "scan_period": "trimonthly",
-    "subdomains": [
+    "subdomains": [ # deprecated. Use `additional_scan_urls`
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "http://app.termly.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
@@ -218,7 +223,7 @@ Submit multiple websites one of which has a validation error
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "http://app.termly.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
