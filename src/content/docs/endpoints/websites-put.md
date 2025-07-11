@@ -14,7 +14,7 @@ Update an existing websites in the given account. The request body will be JSON:
     "name": "<string>",
     "url": "<string{http(s) scheme required}>",
     "scan_period": "<enum{'weekly', 'monthly', 'trimonthly'}>",
-    "subdomains": [
+    "subdomains": [  # deprecated. Use `additional_scan_urls`
       "<string{http(s) scheme required}>"
     ],
     "additional_scan_urls": [
@@ -34,6 +34,8 @@ Update an existing websites in the given account. The request body will be JSON:
   }
 ]
 ```
+
+**Note: The `subdomains` field is deprecated. Please use `additional_scan_urls` instead.**
 
 The body must have 1 or more of these objects. Any attributes not passed in will not be changed.  Once created, the JSON must be passed as the request body
 
@@ -113,7 +115,7 @@ PUT https://api.termly.io/v1/websites
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "https://app.termly.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
@@ -150,7 +152,7 @@ PUT https://api.termly.io/v1/websites
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "http://app.termly.io/user/login"
     ],
     "cookie_count": 0,
     "cookie_policy_document_id": "doc_123",
@@ -201,7 +203,7 @@ Submit multiple websites, one of which does not exist.
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "http://app.termly.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
@@ -225,7 +227,7 @@ Submit multiple websites, one of which does not exist.
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "http://app.termly.io/user/login"
     ],
     "company": {
       "legal_name": "termly",
@@ -262,7 +264,7 @@ Submit multiple websites, one of which does not exist.
       "http://app.termly.io"
     ],
     "additional_scan_urls": [
-      "https://app.termlystaging.io/user/login"
+      "http://app.termly.io/user/login"
     ],
     "cookie_count": 0,
     "cookie_policy_document_id": "doc_123",

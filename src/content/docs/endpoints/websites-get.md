@@ -91,6 +91,7 @@ The response will look like:
   * `id` unique identifier for the report
   * `created_at` timestamp of when the report was created
 * `subdomains` an array of subdomains that the scanner will scan as well
+  * **Note: This field is deprecated. Please use `additional_scan_urls` instead.**
   * items are strings
   * http/https scheme is required
   * Must be a subdomain of the 'url' field
@@ -162,7 +163,7 @@ GET https://api.termly.io/v1/websites?query=%5B%7B%22account_id%22%3A%20%22acct_
         "https://app.termly.io"
       ],
       "additional_scan_urls": [
-        "https://app.termlystaging.io/user/login"
+        "http://app.termly.io/user/login"
       ],
       "cookie_count": 0,
       "cookie_policy_document_id": "doc_123",
@@ -240,7 +241,7 @@ GET https://api.termly.io/v1/websites?query=%5B%20%7B%20%22account_id%22%3A%20%2
         "https://app.termly.io"
       ],
       "additional_scan_urls": [
-        "https://app.termlystaging.io/user/login"
+        "http://app.termly.io/user/login"
       ],
       "cookie_count": 0,
       "cookie_policy_document_id": "doc_123",
@@ -278,7 +279,7 @@ GET https://api.termly.io/v1/websites?query=%5B%20%7B%20%22account_id%22%3A%20%2
         "https://app.termly.io"
       ],
       "additional_scan_urls": [
-        "https://app.termlystaging.io/user/login"
+        "http://app.termly.io/user/login"
       ],
       "cookie_count": 0,
       "cookie_policy_document_id": "doc_123",
