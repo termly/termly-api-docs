@@ -25,7 +25,7 @@ At least 1 object with the field `account_id` is required. If you wish to retrie
 
 ## Paging
 
-All GET requests are subject to paging, please refer to [Result Paging](../results_paging.md) for details, and the [Paging Parameters Object](../paging_parameters_object.md) for configuring the parameters.
+All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details, and the [Paging Parameters Object](../../other/paging-parameters-object) for configuring the parameters.
 
 ## Response
 
@@ -66,12 +66,12 @@ The response has the following shape:
 * `last_name` is the Surname of the collaborator if provided by the collaborator upon signing in for the first time.
 * `invitation_url` is the URL sent to the collaborator so they can activate their account. If the inivitation has been accepted, this field is null.
 * `invitation_status` indicates whether or not the invite has been accepted.
-* `role` is one of the following values - `admin` or `editor`. Please see [here](collaborator_roles.md) for details.
+* `role` is one of the following values - `admin` or `editor`. Please see [here](../../other/collaborator-roles) for details.
 * `website_ids` is an array of website unique identifiers. This field is only provided if the `role` is `editor`.
 
-`errors` will have 0 or more of the [error object](../error_object.md).
+`errors` will have 0 or more of the [error object](../../other/error-object).
 
-`paging` is an object that indicates if there are more results to retrieve. Please see [paging](../results_paging.md)
+`paging` is an object that indicates if there are more results to retrieve. Please see [paging](../../other/results-paging)
 
 # Example 1
 Request for a single account and all collaborators.

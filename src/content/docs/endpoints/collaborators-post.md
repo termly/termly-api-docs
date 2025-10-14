@@ -22,7 +22,7 @@ Create one or more collaborators. The following is the JSON that is posted.
 
 * `account_id` is the unique identifier of the account which owns the collaborator.
 * `email` is the email address of the collaborator
-* `role` is one of the following values - `admin` or `editor`. Please see [here](collaborator_roles.md) for details.
+* `role` is one of the following values - `admin` or `editor`. Please see [here](../../other/collaborator-roles) for details.
 * `website_ids` is an array of website unique identifiers. This field is only provided if the `role` is `editor`.
 
 At least 1 object is required in the request.
@@ -54,10 +54,10 @@ The response is an array of objects. If the collaborator can be created successf
 * `last_name` is the Surname of the collaborator if provided by the collaborator upon signing in for the first time.
 * `invitation_url` is the URL sent to the collaborator so they can activate their account. If the invitation has been accepted, this field is null.
 * `invitation_status` indicates whether or not the invite has been accepted.
-* `role` is one of the following values - `admin` or `editor`. Please see [here](collaborator_roles.md) for details.
+* `role` is one of the following values - `admin` or `editor`. Please see [here](../../other/collaborator-roles) for details.
 * `website_ids` is an array of website unique identifiers. This field is only provided if the `role` is `editor`.
 
-If one of the collaborators cannot be created, the object will be an [error object](../error_object.md). If the error is a validation error, there will be a field called [validation errors](../validation_error_object.md).
+If one of the collaborators cannot be created, the object will be an [error object](../../other/error-object). If the error is a validation error, there will be a field called [validation errors](../../other/validation-error-object).
 
 # Example 1
 Request for a single collaborator

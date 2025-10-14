@@ -24,7 +24,7 @@ At least 1 object with an `account_id` must be provided.  If you would like to r
 
 ## Paging
 
-All GET requests are subject to paging, please refer to [Result Paging](../results_paging.md) for details, and the [Paging Parameters Object](../paging_parameters_object.md) for configuring the parameters.
+All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details, and the [Paging Parameters Object](../../other/paging-parameters-object) for configuring the parameters.
 
 ## Response
 
@@ -119,9 +119,9 @@ The response will look like:
 * `api_key` WordPress API key of the website
 
 
-`errors` will have 0 or more of the [error object](../error_object.md#get-errors).
+`errors` will have 0 or more of the [error object](../../other/error-object#get-errors).
 
-`paging` is an object that indicates if there are more results to retrieve. Please see [paging](../results_paging.md)
+`paging` is an object that indicates if there are more results to retrieve. Please see [paging](../../other/results-paging)
 
 # Example 1
 

@@ -33,9 +33,9 @@ The response is an array of success or error response objects with this shape:
 ]
 ```
 
-The shape of an error object is described [here](../error_object.md#post-put-delete-error-object).
+The shape of an error object is described [here](../../other/error-object#post-put-delete-error-object).
 
-If the entire request is in error or invalid the result JSON will be [request error object](../request_errors.md)
+If the entire request is in error or invalid the result JSON will be [request error object](../../other/request-errors)
 
 
 # Example 1
