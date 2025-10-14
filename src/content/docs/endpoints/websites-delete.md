@@ -15,9 +15,9 @@ Delete an existing website from an account. The query has the following JSON sha
 ]
 ```
 
-The query must have 1 or more request objects and will respond with the same number of success or [error objects](../error_object.md#post-put-delete-error-object). Once the JSON is constructed it is URL encoded and then is set to the value of the `query` parameter.
+The query must have 1 or more request objects and will respond with the same number of success or [error objects](../../other/error-object#post-put-delete-error-object). Once the JSON is constructed it is URL encoded and then is set to the value of the `query` parameter.
 
-If the entire request is in error or invalid, the result JSON will be an [request error object](../request_errors.md).
+If the entire request is in error or invalid, the result JSON will be an [request error object](../../other/request-errors).
 
 # Example 1
 

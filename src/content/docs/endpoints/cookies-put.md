@@ -77,7 +77,7 @@ The results will contain zero or more of the following objects:
 }
 ```
 
-If one of the collaborators cannot be updated, the object will be an [error object](../error_object.md). If the error is a validation error, there will be a field called [validation errors](../validation_error_object.md)
+If one of the collaborators cannot be updated, the object will be an [error object](../../other/error-object). If the error is a validation error, there will be a field called [validation errors](../../other/validation-error-object)
 
 # Example 1
 

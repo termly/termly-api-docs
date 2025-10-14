@@ -1,4 +1,3 @@
-
 ---
 title: Results Paging
 description: A guide on how to use the results paging to navigate through the results of a request

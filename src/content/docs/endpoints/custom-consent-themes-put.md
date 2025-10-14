@@ -23,7 +23,7 @@ Update existing custom consent themes. The request body will have this shape:
 
 The body must have 1 or more of these objects. Any attributes not passed in will not be changed.  Once created, the JSON must be passed as the request body
 
-The response is an array of successful response objects or a [failure object](../error_object.md):
+The response is an array of successful response objects or a [failure object](../../other/error-object):
 
 ```JSON
 [
@@ -48,9 +48,9 @@ Each object can represent either a success or a failure. A success response is a
 }
 ```
 
-An error response is detailed in [error object](../error_object.md#delete-PUT-put-error-object)
+An error response is detailed in [error object](../../other/error-object#delete-PUT-put-error-object)
 
-If the entire request is in error or invalid, the result JSON will be [request error object](../request_errors.md)
+If the entire request is in error or invalid, the result JSON will be [request error object](../../other/request-errors)
 
 # Example 1
 

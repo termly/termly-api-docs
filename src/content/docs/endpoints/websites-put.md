@@ -86,9 +86,9 @@ The response is an array of success or error response objects
 ]
 ```
 
-An error response is detailed in [error object](../error_object.md#delete-PUT-put-error-object)
+An error response is detailed in [error object](../../other/error-object#delete-PUT-put-error-object)
 
-If the entire request is in error or invalid, the result JSON will be [request error object](../request_errors.md)
+If the entire request is in error or invalid, the result JSON will be [request error object](../../other/request-errors)
 
 
 # Example 1

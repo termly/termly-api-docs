@@ -41,7 +41,7 @@ The response is an array of objects. If the scan is successfully triggered, the 
 * `website_id` is the unique identifier of website to scan.
 * `report_id` is the unique identifier of the scan report.  This identifier can be used to find the scan status
 
-If one of the websites cannot be scanned, the object will be an [error object](../error_object.md). If the error is a validation error, there will be a field called [validation errors](../validation_error_object.md).
+If one of the websites cannot be scanned, the object will be an [error object](../../other/error-object). If the error is a validation error, there will be a field called [validation errors](../../other/validation-error-object).
 
 # Example 1
 Request for a single scan
