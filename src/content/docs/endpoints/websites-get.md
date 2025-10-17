@@ -185,7 +185,6 @@ Request all websites for a given account
 
 Multiple accounts and websites in each account and one website cannot be found
 
-
 #### Body
 
 ```JSON
@@ -202,10 +201,9 @@ Multiple accounts and websites in each account and one website cannot be found
 ]
 ```
 
-
 ### Example 3
 
-Request wit `ids` parameter but value is empty array
+Request with `ids` parameter but value is empty array
 
 #### Body
 
@@ -235,6 +233,83 @@ This would result in an error response
       ]
     }
   ],
+  "paging": {}
+}
+```
+
+### Example 4
+
+Request with `domain` parameter
+
+#### Body
+
+```JSON
+[
+  {
+    "account_id": "acct_123",
+    "domain": "example.com"
+  }
+]
+```
+
+This would result in a response containing websites for all domains and subdomains for `example.com`.
+Note that the value of some fields in the result objects (websites) have been removed to reduce clutter in the example.
+
+```JSON
+{
+  "results": [
+    {
+      "account_id": "acct_123",
+      "code_snippet": {
+          "banner": "",
+          "cookie_preference_button": ""
+      },
+      "company": null,
+      "consent_count": 0,
+      "cookie_count": 0,
+      "cookie_policy_document_id": null,
+      "id": "web_0228b3ea-edc7-44e2-b9e1-69ehhe46db8d",
+      "name": "docs",
+      "page_views": 0,
+      "report": {
+          "id": null,
+          "created_at": null
+      },
+      "scan_period": "disabled",
+      "subdomains": [],
+      "additional_scan_urls": [],
+      "unclassified_cookie_count": 0,
+      "url": "https://example.com",
+      "uuid": "0228b3ea-edc7-44e2-b9e1-69ehhe46db8d",
+      "api_key": ""
+    },
+    {
+      "account_id": "acct_123",
+      "code_snippet": {
+          "banner": "",
+          "cookie_preference_button": ""
+      },
+      "company": null,
+      "consent_count": 0,
+      "cookie_count": 0,
+      "cookie_policy_document_id": null,
+      "id": "web_1ert70gg-d313-4b2d-9ch0-v4b29f41ec2c",
+      "name": "Test",
+      "page_views": 0,
+      "report": {
+          "id": null,
+          "created_at": null
+      },
+      "scan_period": "disabled",
+      "subdomains": [],
+      "additional_scan_urls": [],
+      "unclassified_cookie_count": 0,
+      "url": "https://info.termly.io",
+      "uuid": "1ert70gg-d313-4b2d-9ch0-v4b29f41ec2c",
+      "api_key": ""
+  }
+  ],
+  "errors": [],
   "paging": {}
 }
 ```
