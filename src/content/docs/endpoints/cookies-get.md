@@ -24,7 +24,7 @@ At least 1 object with the field account_id and website_id is required. Once the
 
 ## Paging
 
-All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details, and the [Paging Parameters Object](../../other/paging-parameters-object) for configuring the parameters.
+All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details.
 
 # Response
 

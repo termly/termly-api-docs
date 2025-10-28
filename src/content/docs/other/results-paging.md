@@ -1,25 +1,81 @@
 ---
 title: Results Paging
-description: A guide on how to use the results paging to navigate through the results of a request
+description: A guide on how to use cursor-based pagination to navigate through API results
 ---
 
 # Overview
 
-Result sets with more than 25 results will be automatically partitioned into groups, and will follow these rules:
+The Termly Public API uses cursor-based pagination to handle large result sets efficiently. 
+This system provides stable, consistent pagination even when data changes between requests.
 
-- If not specified, the group size will be 25;
-- The group size can be specified along with the query objects;
-- The group size is limited to a maximum of 25;
-- The group size is limited to a minimum of 1;
+## How It Works
 
-The response will contain data that allows paging through the results. The JSON shape is:
-
-```JSON
+- Results are paginated using cursor-based pagination.
+- Default page size is 20 results per request
+- Page size can be customized using the `limit` parameter. If provided, the response object will include a `paging` object with `next` and `previous` properties
+```json
 {
-  "next_results": "<string>",
-  "previous_results": "<string>"
+  "results": [...],
+  "errors": [],
+  "paging": {
+    "next": "base64_encoded_pagination_token",
+    "previous": "base64_encoded_pagination_token"
+  }
+}
+```
+- The `next` and `previous` tokens are `base64-encoded` and contain all necessary state information. Clients should not decode or modify them
+- In subsequent requests, include the `next` token (if not null) to get the next page and the `previous` token (if not null) to get the previous page
+
+## Request Parameters
+We use the `GET /v1/websites` in these examples, but the same pagination logic/rules apply to all `GET` endpoints.
+
+### First Request
+```shell
+GET /v1/websites?query=<encoded_json_body>&limit=<number>
+```
+
+**Parameters:**
+- `query` (required): JSON-encoded request body containing your search criteria
+- `limit` (optional): Maximum number of results per page (default: 20)
+
+### Subsequent Requests
+```shell
+GET /v1/websites?paging=<pagination_token>
+```
+
+**Parameters:**
+- `paging` (required): Pagination token from the previous response. This can be either the `next` or `previous` token
+
+## Response Structure
+
+The API response includes a `paging` object with pagination information:
+
+```json
+{
+  "results": [...],
+  "errors": [],
+  "paging": {
+    "next": "base64_encoded_pagination_token",
+    "previous": "base64_encoded_pagination_token"
+  }
 }
 ```
 
-* `next_results` url to next page in the set (null if there is not a next page)
-* `previous_results` url to previous page in the set (null if there is not a previous page)
+**Fields:**
+- `next`: Pagination token for the next page (null if no more results)
+- `previous`: Pagination token for the previous page (null if on first page)
+
+## Important Notes
+
+1. **Pagination tokens are opaque**: Never decode, modify, or construct pagination tokens manually
+2. **Consistent ordering**: Results are ordered consistently across pages (typically by ID)
+3. **No offset-based pagination**: The API does not support `page` or `offset` parameters
+4. **Stateless tokens**: Pagination tokens do not expire and contain all necessary state information
+5. **Error handling**: Always check for errors in the response and handle pagination failures gracefully
+
+## Troubleshooting
+
+**Common Issues:**
+- **"Invalid paging token"**: The token may be malformed or corrupted. Start over with a fresh request.
+- **Empty results**: Check that your `account_id` is correct.
+- **Pagination not working**: Ensure you're using the `paging` parameter (not `query`) for subsequent requests.

@@ -68,7 +68,7 @@ description: A guide on how to use the Websites endpoint
 
 ### Paging
 
-All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details, and the [Paging Parameters Object](../../other/paging-parameters-object) for configuring the parameters.
+All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details.
 
 #### Response Details
 
