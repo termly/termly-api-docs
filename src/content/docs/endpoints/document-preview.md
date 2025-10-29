@@ -26,7 +26,7 @@ At least 1 object with an `account_id` must be provided.  If you would like to r
 
 ## Paging
 
-All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details, and the [Paging Parameters Object](../../other/paging-parameters-object) for configuring the parameters.
+All ```GET``` requests are subject to paging, please refer to [Result Paging](../../other/results-paging) for details.
 
 ## Response
 
