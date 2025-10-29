@@ -10,7 +10,6 @@ This system provides stable, consistent pagination even when data changes betwee
 
 ## How It Works
 
-- Results are paginated using cursor-based pagination.
 - Default page size is 20 results per request
 - Page size can be customized using the `limit` parameter. If provided, the response object will include a `paging` object with `next` and `previous` properties
 ```json
@@ -18,12 +17,12 @@ This system provides stable, consistent pagination even when data changes betwee
   "results": [...],
   "errors": [],
   "paging": {
-    "next": "base64_encoded_pagination_token",
-    "previous": "base64_encoded_pagination_token"
+    "next": "pagination_token",
+    "previous": "pagination_token"
   }
 }
 ```
-- The `next` and `previous` tokens are `base64-encoded` and contain all necessary state information. Clients should not decode or modify them
+- The `next` and `previous` tokens contain all necessary state information
 - In subsequent requests, include the `next` token (if not null) to get the next page and the `previous` token (if not null) to get the previous page
 
 ## Request Parameters
@@ -55,8 +54,8 @@ The API response includes a `paging` object with pagination information:
   "results": [...],
   "errors": [],
   "paging": {
-    "next": "base64_encoded_pagination_token",
-    "previous": "base64_encoded_pagination_token"
+    "next": "pagination_token",
+    "previous": "pagination_token"
   }
 }
 ```
@@ -67,7 +66,7 @@ The API response includes a `paging` object with pagination information:
 
 ## Important Notes
 
-1. **Pagination tokens are opaque**: Never decode, modify, or construct pagination tokens manually
+1. **Pagination tokens are opaque**: They are not intended to be decoded, modified, or constructed manually
 2. **Consistent ordering**: Results are ordered consistently across pages (typically by ID)
 3. **No offset-based pagination**: The API does not support `page` or `offset` parameters
 4. **Stateless tokens**: Pagination tokens do not expire and contain all necessary state information
