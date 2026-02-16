@@ -16,8 +16,6 @@ PUBLIC_KEY=YOUR_PUBLIC_KEY
 PRIVATE_KEY=YOUR_PRIVATE_KEY
 ACCOUNT_ID=YOUR_ACCOUNT_ID
 WEBSITE_ID=YOUR_WEBSITE_ID
-# For production use https://api.termly.io
-# For local development use http://localhost:3001
 API_BASE_URL=https://api.termly.io
 ```
 
@@ -249,7 +247,7 @@ Then open .env and fill in your values:
 - `PUBLIC_KEY` and `PRIVATE_KEY` — your API key pair
 - `ACCOUNT_ID` — your Termly account ID (e.g. `acct_xxxx`)
 - `WEBSITE_ID` — the website ID to manage themes for (e.g. `web_xxxx`)
-- `API_BASE_URL` — use `https://api.termly.io` for production or `http://localhost:3001` for local development
+- `API_BASE_URL` — use `https://api.termly.io`
 
 ## Running the Example
 To run the example, execute:
