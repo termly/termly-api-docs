@@ -41,9 +41,72 @@ Advice and best practices for further implementation of the Termly CMP.
 
 ### **Banner Customization**
 
-Banner appearance and behavior can be modified to suit each website’s needs. Some Integration Partners see value in setting a standardized configuration across all sites that they manage, while others expose certain controls to their users to allow for some control.
+Banner appearance and behavior can be modified to suit each website's needs. Some Integration Partners see value in setting a standardized configuration across all sites that they manage, while others expose certain controls to their users to allow for some control.
 
 **Documentation:** [Banner Settings](/endpoints/banners-put), [Theming](/endpoints/custom-consent-themes-get)
+
+#### Custom Consent Themes
+
+To customize banner colors, fonts, and button styles, use the Custom Consent Themes endpoints. The typical flow is:
+
+**1. Create a theme** with a POST request containing your desired styles:
+
+```
+POST https://api.termly.io/v1/websites/custom_consent_themes
+```
+
+```json
+[
+  {
+    "account_id": "<your_account_id>",
+    "website_id": "<your_website_id>",
+    "font_family": "Arial",
+    "font_size": "14",
+    "color": "#333333",
+    "background": "#FFFFFF",
+    "btn_background": "#4CAF50",
+    "btn_text_color": "#FFFFFF"
+  }
+]
+```
+
+The response includes the theme `id` (e.g. `cct_xxxx`) which you will need for subsequent updates.
+
+**2. Update the theme** with a PUT request. Include the theme `id` and only the fields you want to change:
+
+```
+PUT https://api.termly.io/v1/websites/custom_consent_themes
+```
+
+```json
+[
+  {
+    "account_id": "<your_account_id>",
+    "website_id": "<your_website_id>",
+    "id": "<theme_id>",
+    "color": "#FF0000",
+    "btn_background": "#0000FF"
+  }
+]
+```
+
+**3. Verify your changes** with a GET request. The query must be URL-encoded and passed as the `query` parameter:
+
+```
+GET https://api.termly.io/v1/websites/custom_consent_themes?query=<url_encoded_json>
+```
+
+Where the query JSON is:
+
+```json
+[{"account_id":"<your_account_id>","website_id":"<your_website_id>"}]
+```
+
+:::note
+All request bodies must be JSON **arrays**, even for a single item. The POST endpoint must be called first to create a theme before it can be updated with PUT.
+:::
+
+For a complete working code example, see the [Node.js Authentication Example](/quickstart/node-js-example).
 
 ### **User Collaboration**
 
