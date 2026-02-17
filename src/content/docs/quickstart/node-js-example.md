@@ -89,6 +89,8 @@ function createCanonicalRequest(method, host, path, query, termlyTimestamp, requ
 }
 
 // --- Routes ---
+// TODO: Consider splitting routes into separate files (e.g. routes/custom-consent-themes.js)
+// as more endpoint examples are added to keep this file manageable.
 
 // Test authentication
 app.get('/test-auth', async (req, res) => {
@@ -123,15 +125,15 @@ app.post('/custom-consent-themes', async (req, res) => {
         const path = '/v1/websites/custom_consent_themes';
 
         const body = JSON.stringify([{
-            account_id: process.env.ACCOUNT_ID,
-            website_id: process.env.WEBSITE_ID,
             font_family: 'Arial',
             font_size: '14',
             color: '#333333',
             background: '#FFFFFF',
             btn_background: '#4CAF50',
             btn_text_color: '#FFFFFF',
-            ...req.body, // allow overriding defaults
+            ...req.body,
+            account_id: process.env.ACCOUNT_ID,
+            website_id: process.env.WEBSITE_ID,
         }]);
 
         const termlyTimestamp = getTermlyTimestamp();
@@ -192,10 +194,10 @@ app.put('/custom-consent-themes/:themeId', async (req, res) => {
         const path = '/v1/websites/custom_consent_themes';
 
         const body = JSON.stringify([{
+            ...req.body,
             account_id: process.env.ACCOUNT_ID,
             website_id: process.env.WEBSITE_ID,
             id: req.params.themeId,
-            ...req.body,
         }]);
 
         const termlyTimestamp = getTermlyTimestamp();
