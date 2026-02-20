@@ -45,11 +45,29 @@ Banner appearance and behavior can be modified to suit each website's needs. Som
 
 **Documentation:** [Banner Settings](/endpoints/banners-put), [Theming](/endpoints/custom-consent-themes-get)
 
+
 #### Custom Consent Themes
 
-To customize banner colors, fonts, and button styles, use the Custom Consent Themes endpoints. The typical flow is:
+To customize banner colors, fonts, and button styles, use the Custom Consent Themes endpoints. The complete flow is:
 
-**1. Create a theme** with a POST request containing your desired styles:
+**1. Check if a theme already exists** with a GET request before creating a new one:
+
+```
+GET https://api.termly.io/v1/websites/custom_consent_themes?query=<url_encoded_json>
+```
+
+Where the query JSON (URL-encoded) is:
+
+```json
+[{"account_id":"<your_account_id>","website_id":"<your_website_id>"}]
+```
+
+- If `results` is **not empty**, a theme already exists — use its `id` for the PUT in step 2.
+- If `results` is **empty**, no theme exists — proceed with POST in step 2.
+
+**2. Create or update the theme:**
+
+*If no theme exists*, create one with POST:
 
 ```
 POST https://api.termly.io/v1/websites/custom_consent_themes
@@ -70,9 +88,9 @@ POST https://api.termly.io/v1/websites/custom_consent_themes
 ]
 ```
 
-The response includes the theme `id` (e.g. `cct_xxxx`) which you will need for subsequent updates.
+The response includes the theme `id` (e.g. `cct_xxxx`) — save this for step 3.
 
-**2. Update the theme** with a PUT request. Include the theme `id` and only the fields you want to change:
+*If a theme already exists*, update it with PUT using the `id` from the GET response:
 
 ```
 PUT https://api.termly.io/v1/websites/custom_consent_themes
@@ -90,20 +108,28 @@ PUT https://api.termly.io/v1/websites/custom_consent_themes
 ]
 ```
 
-**3. Verify your changes** with a GET request. The query must be URL-encoded and passed as the `query` parameter:
+**3. Apply the theme to the banner** — this is a required step to make the theme visible to site visitors:
 
 ```
-GET https://api.termly.io/v1/websites/custom_consent_themes?query=<url_encoded_json>
+PUT https://api.termly.io/v1/websites/banners
 ```
-
-Where the query JSON is:
 
 ```json
-[{"account_id":"<your_account_id>","website_id":"<your_website_id>"}]
+[
+  {
+    "account_id": "<your_account_id>",
+    "id": "<your_website_id>",
+    "theme_id": "<theme_id>"
+  }
+]
 ```
 
 :::note
-All request bodies must be JSON **arrays**, even for a single item. The POST endpoint must be called first to create a theme before it can be updated with PUT.
+Creating or updating a theme saves it to the website's theme library, but does **not** automatically apply it to the live banner. The `PUT /v1/websites/banners` call in step 3 is what links the theme to the banner and makes the styling visible. Without this step, the banner will continue using its default appearance.
+:::
+
+:::note
+All request bodies must be JSON **arrays**, even for a single item.
 :::
 
 For a complete working code example, see the [Node.js Authentication Example](/quickstart/node-js-example).
