@@ -59,7 +59,7 @@ Update multiple themes in different websites.
 ## Request
 
 ```
-PUT https://api.termly.io/v1/websites/custom_consent_theme
+PUT https://api.termly.io/v1/websites/custom_consent_themes
 ```
 
 ## Request Body

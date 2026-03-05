@@ -41,9 +41,98 @@ Advice and best practices for further implementation of the Termly CMP.
 
 ### **Banner Customization**
 
-Banner appearance and behavior can be modified to suit each website’s needs. Some Integration Partners see value in setting a standardized configuration across all sites that they manage, while others expose certain controls to their users to allow for some control.
+Banner appearance and behavior can be modified to suit each website's needs. Some Integration Partners see value in setting a standardized configuration across all sites that they manage, while others expose certain controls to their users to allow for some control.
 
 **Documentation:** [Banner Settings](/endpoints/banners-put), [Theming](/endpoints/custom-consent-themes-get)
+
+
+#### Custom Consent Themes
+
+To customize banner colors, fonts, and button styles, use the Custom Consent Themes endpoints. The complete flow is:
+
+**1. Check if a theme already exists** with a GET request before creating a new one:
+
+```
+GET https://api.termly.io/v1/websites/custom_consent_themes?query=<url_encoded_json>
+```
+
+Where the query JSON (URL-encoded) is:
+
+```json
+[{"account_id":"<your_account_id>","website_id":"<your_website_id>"}]
+```
+
+- If `results` is **not empty**, a theme already exists — use its `id` for the PUT in step 2.
+- If `results` is **empty**, no theme exists — proceed with POST in step 2.
+
+**2. Create or update the theme:**
+
+*If no theme exists*, create one with POST:
+
+```
+POST https://api.termly.io/v1/websites/custom_consent_themes
+```
+
+```json
+[
+  {
+    "account_id": "<your_account_id>",
+    "website_id": "<your_website_id>",
+    "font_family": "Arial",
+    "font_size": "14",
+    "color": "#333333",
+    "background": "#FFFFFF",
+    "btn_background": "#4CAF50",
+    "btn_text_color": "#FFFFFF"
+  }
+]
+```
+
+The response includes the theme `id` (e.g. `cct_xxxx`) — save this for step 3.
+
+*If a theme already exists*, update it with PUT using the `id` from the GET response:
+
+```
+PUT https://api.termly.io/v1/websites/custom_consent_themes
+```
+
+```json
+[
+  {
+    "account_id": "<your_account_id>",
+    "website_id": "<your_website_id>",
+    "id": "<theme_id>",
+    "color": "#FF0000",
+    "btn_background": "#0000FF"
+  }
+]
+```
+
+**3. Apply the theme to the banner** — this is a required step to make the theme visible to site visitors:
+
+```
+PUT https://api.termly.io/v1/websites/banners
+```
+
+```json
+[
+  {
+    "account_id": "<your_account_id>",
+    "id": "<your_website_id>",
+    "theme_id": "<theme_id>"
+  }
+]
+```
+
+:::note
+Creating or updating a theme saves it to the website's theme library, but does **not** automatically apply it to the live banner. The `PUT /v1/websites/banners` call in step 3 is what links the theme to the banner and makes the styling visible. Without this step, the banner will continue using its default appearance.
+:::
+
+:::note
+All request bodies must be JSON **arrays**, even for a single item.
+:::
+
+For a complete working code example, see the [Node.js Authentication Example](/quickstart/node-js-example).
 
 ### **User Collaboration**
 
