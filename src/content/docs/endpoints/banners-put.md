@@ -25,7 +25,7 @@ Updates the banner for a website. The body has the following shape:
     "personalized_content": "<bool>",
     "running_targeted_advertising": "<bool>",
     "share_data_to_3rd_party": "<bool>",
-    "selected_languages": ["<enum{'el', 'hu', 'pt', 'sv', 'it', 'es', 'en-gb', 'da', 'fi', 'nl', 'fr', 'de', 'pl'}>"],
+    "selected_languages": ["<enum{'el', 'hu', 'pt', 'sv', 'it', 'es', 'en-gb', 'da', 'fi', 'nl', 'fr', 'de', 'pl', 'cs', 'sk'}>"],
     "regions": {
       "<enum{'global', 'us', 'california', 'eu'}>": {
         "enable_banner": "<bool>",
